@@ -1,0 +1,11 @@
+{
+  "title": "Forensify — Evidence Workspace",
+  "description": "A local browser-based forensic triage workspace for hashing, artifact profiling, heuristic indicators, and timeline review.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
