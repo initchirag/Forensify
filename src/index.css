@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-surface: var(--surface);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #0b1016;
+  --foreground: #e7edf3;
+  --card: #111922;
+  --card-foreground: #e7edf3;
+  --surface: #151f2a;
+  --primary: #50c8b2;
+  --primary-foreground: #071411;
+  --muted: #17212b;
+  --muted-foreground: #91a0af;
+  --border: #273440;
+  --ring: #50c8b2;
+  --accent: #50c8b2;
+  --accent-foreground: #071411;
+}
+
+.light {
+  color-scheme: light;
+  --background: #f4f7f9;
+  --foreground: #18232d;
+  --card: #ffffff;
+  --card-foreground: #18232d;
+  --surface: #edf2f5;
+  --primary: #167d70;
+  --primary-foreground: #ffffff;
+  --muted: #edf2f5;
+  --muted-foreground: #627181;
+  --border: #dbe3e9;
+  --ring: #167d70;
+  --accent: #167d70;
+  --accent-foreground: #ffffff;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mono, code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+*::-webkit-scrollbar { width: 4px; height: 4px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+::selection {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--foreground);
+}
